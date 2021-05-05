@@ -17,7 +17,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertThat;
 
 /**
- * Unit test on Neighbour service
+ * Unit test on Neighbour com.example.maru.service
  */
 @RunWith(JUnit4.class)
 public class NeighbourServiceTest {
@@ -44,12 +44,12 @@ public class NeighbourServiceTest {
 }
 
     /**
-     * We test the method getNeighbourById and we see if she send us the correct neighbour with his id
+     * We test the method getNeighbourById and we see if she send us the correct id like the id of "expectedNeighbour"
      */
     @Test
     public void getNeighbourByIdWithSuccess() {
         Neighbour expectedNeighbour = DummyNeighbourGenerator.DUMMY_NEIGHBOURS.get(4);
-        Neighbour neighbourTest = service.getNeighourById(expectedNeighbour.getId()); // ou 5
+        Neighbour neighbourTest = service.getNeighbourById(expectedNeighbour.getId()); // ou 5
         //assertEquals(expectedNeighbour, neighbourTest);
         assertEquals(expectedNeighbour.getId(), neighbourTest.getId() );
     }

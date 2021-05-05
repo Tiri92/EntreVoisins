@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
     private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
@@ -22,13 +22,13 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     }
 
     /**
-     * We recover the id of the selected neighbour "neighbour.getId()" and we compare his Id with Id of the list of neighbour
-     * "neighbourId" for send the correct neighbour if both id are the same
+     * We recover the id of the selected neighbour "neighbourId" and we compare his Id with Id of the list of neighbour
+     * through "neighbour.getId()" for send the correct neighbour if both id are the same .
+     * "neighbour.getId()" walks through the neighbors one by one to find the one we're on
      */
     @Override
-    public Neighbour getNeighourById(long neighbourId) {
-        List<Neighbour> neighbourList = DI.getNeighbourApiService().getNeighbours();
-        for (Neighbour neighbour : neighbourList) {
+    public Neighbour getNeighbourById(long neighbourId) {
+        for (Neighbour neighbour : neighbours) {
             if (neighbour.getId() == neighbourId) {
                 return neighbour;
             }

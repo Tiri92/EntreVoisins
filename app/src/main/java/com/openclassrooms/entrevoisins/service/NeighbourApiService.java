@@ -17,7 +17,7 @@ public interface NeighbourApiService {
      */
     List<Neighbour> getNeighbours();
 
-    Neighbour getNeighourById(long id);
+    Neighbour getNeighbourById(long id);
 
     /**
      * Deletes a neighbour

@@ -14,8 +14,6 @@ import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -53,6 +51,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle mBundle = intent.getBundleExtra(BUNDLE_ID);
         mNeighbourFromBundle = (Neighbour) mBundle.getSerializable(NEIGHBOUR_KEY);
+
         setContentView(R.layout.activity_neighbour_detail);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -84,7 +83,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
      * we delete him from FavoritesNeighbours by  clicking on the mFavoritesButton
      */
     private void switchIsFavorite() {
-        Neighbour neighbour = DI.getNeighbourApiService().getNeighourById(mNeighbourFromBundle.getId());
+        Neighbour neighbour = DI.getNeighbourApiService().getNeighbourById(mNeighbourFromBundle.getId());
         if (neighbour.getIsFavorite()) {
             neighbour.setIsFavorite(false);
             Toast.makeText(getApplicationContext(), R.string.toast_removed_from_favorite, Toast.LENGTH_SHORT).show();

@@ -22,7 +22,6 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public class FavoriteNeighbourFragment extends Fragment {
@@ -42,7 +41,7 @@ public class FavoriteNeighbourFragment extends Fragment {
         Context context = view.getContext();
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
         return view;
 
     }
@@ -58,7 +57,7 @@ public class FavoriteNeighbourFragment extends Fragment {
      */
     private List<Neighbour> getFavoriteNeighbourList() {
         List<Neighbour> favoriteNeighbours = new ArrayList<>();
-        for (Iterator<Neighbour> it = mApiService.getNeighbours().iterator(); it.hasNext();) {
+        for (Iterator<Neighbour> it = mApiService.getNeighbours().iterator(); it.hasNext(); ) {
             Neighbour neighbour = it.next();
             if (neighbour.getIsFavorite())
                 favoriteNeighbours.add(neighbour);
@@ -81,7 +80,7 @@ public class FavoriteNeighbourFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-       EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
 
     @Subscribe
